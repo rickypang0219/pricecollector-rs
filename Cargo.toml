@@ -1,0 +1,12 @@
+[package]
+name = "price_connector"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+# async runtime: TCP socket, timers, the broadcast queue
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "net", "io-util", "time", "sync"] }
+# official QuestDB client: QWP (ws::) for QuestDB 10+, ILP over HTTP (http::) for older servers
+questdb-rs = { version = "7.3", default-features = false, features = ["sync-sender-qwp-ws", "sync-sender-http", "ring-crypto", "tls-webpki-certs"] }
+# HTTP for the startup CREATE TABLE (already pulled in by questdb-rs, so no extra build)
+ureq = "3"

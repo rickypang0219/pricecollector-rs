@@ -1,0 +1,8 @@
+/target
+
+# Enviroment
+*.env
+*.sh
+
+# MacOS
+*.DS_Store
